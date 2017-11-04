@@ -9,6 +9,7 @@
         android:id="@+id/listview_foot_progress"
         android:layout_width="30dip"
         android:layout_height="30dip"
+        
     />		
     <TextView
     	android:id="@+id/listview_foot_more"
