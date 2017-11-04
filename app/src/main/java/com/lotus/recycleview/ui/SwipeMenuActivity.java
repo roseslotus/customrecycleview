@@ -39,7 +39,7 @@ public class SwipeMenuActivity extends Activity
 
 
         initView();
-        recyclerPresenter=new RecyclerPresenter(superSwipeMenuRecyclerView,null,this);
+        recyclerPresenter=new RecyclerPresenter(this,superSwipeMenuRecyclerView,null,this);
 
         initAdapter();
     }

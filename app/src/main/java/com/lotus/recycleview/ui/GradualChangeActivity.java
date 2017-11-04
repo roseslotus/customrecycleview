@@ -94,7 +94,7 @@ public class GradualChangeActivity extends Activity implements SuperRecyclerView
     }
 
     private void initAdapter() {
-        mAdapter = new RefreshAndLoadMoreAdapter(this, dataList);
+        mAdapter=null;// = new RefreshAndLoadMoreAdapter(this, dataList);
         addHeadView();
         superRecyclerView.setAdapter(mAdapter);
     }
