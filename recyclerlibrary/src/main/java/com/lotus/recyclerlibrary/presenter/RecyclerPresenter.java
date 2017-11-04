@@ -4,6 +4,7 @@ import android.content.Context;
 import android.support.v7.widget.LinearLayoutManager;
 import android.view.View;
 
+import com.lotus.recyclerlibrary.adapter.SuperBaseAdapter;
 import com.lotus.recyclerlibrary.callback.SuperRecycleListener;
 import com.lotus.recyclerlibrary.recycleview.ProgressStyle;
 import com.lotus.recyclerlibrary.recycleview.SuperRecyclerView;
@@ -73,16 +74,28 @@ public class RecyclerPresenter<T extends BaseListBean> implements SuperRecyclerV
   }
 
   public void addListData(boolean isRefresh, List<T> result) {
+    addListData(isRefresh,result,null);
+  }
+  public void addListData(boolean isRefresh, List<T> result,SuperBaseAdapter<T> superBaseAdapter) {
     if (isRefresh) {
       this.listBeens.clear();
-      this.listBeens.addAll(result);
+      if (result!=null){
+        this.listBeens.addAll(result);
+      }
+
       if (this.listBeens.size()<minSum){
         superRecyclerView.setLoadMoreEnabled(false);
       }else {
         superRecyclerView.setLoadMoreEnabled(true);
       }
     } else {
-      this.listBeens.addAll(result);
+      if (result!=null){
+        this.listBeens.addAll(result);
+      }
+    }
+
+    if (superBaseAdapter!=null){
+      superBaseAdapter.notifyDataSetChanged();
     }
     onCompleteRefresh();
   }
