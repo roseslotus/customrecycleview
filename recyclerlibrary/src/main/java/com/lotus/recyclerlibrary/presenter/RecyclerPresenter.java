@@ -84,6 +84,7 @@ public class RecyclerPresenter<T extends BaseListBean> implements SuperRecyclerV
     } else {
       this.listBeens.addAll(result);
     }
+    onCompleteRefresh();
   }
 
   public void setLoadMoreMinSumEnable(int sum){
